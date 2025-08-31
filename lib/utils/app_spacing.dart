@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'app_dimension.dart';
+
+class AppSpacing {
+  AppSpacing._();
+
+  static Widget h2 = SizedBox(height: 2.h);
+  static Widget h3 = SizedBox(height: 3.h);
+  static Widget h4 = SizedBox(height: 4.h);
+  static Widget h5 = SizedBox(height: 5.h);
+  static Widget h6 = SizedBox(height: 6.h);
+  static Widget h7 = SizedBox(height: 7.h);
+  static Widget h8 = SizedBox(height: 8.h);
+  static Widget h9 = SizedBox(height: 9.h);
+  static Widget h10 = SizedBox(height: 10.h);
+  static Widget h11 = SizedBox(height: 11.h);
+  static Widget h12 = SizedBox(height: 12.h);
+  static Widget h13 = SizedBox(height: 13.h);
+  static Widget h14 = SizedBox(height: 14.h);
+  static Widget h15 = SizedBox(height: 15.h);
+  static Widget h16 = SizedBox(height: 16.h);
+  static Widget h17 = SizedBox(height: 17.h);
+  static Widget h18 = SizedBox(height: 18.h);
+  static Widget h19 = SizedBox(height: 19.h);
+  static Widget h20 = SizedBox(height: 20.h);
+  static Widget h21 = SizedBox(height: 21.h);
+  static Widget h22 = SizedBox(height: 22.h);
+  static Widget h23 = SizedBox(height: 23.h);
+  static Widget h24 = SizedBox(height: 24.h);
+  static Widget h25 = SizedBox(height: 25.h);
+  static Widget h26 = SizedBox(height: 26.h);
+  static Widget h27 = SizedBox(height: 27.h);
+  static Widget h28 = SizedBox(height: 28.h);
+  static Widget h29 = SizedBox(height: 29.h);
+  static Widget h30 = SizedBox(height: 30.h);
+  static Widget h31 = SizedBox(height: 31.h);
+  static Widget h32 = SizedBox(height: 32.h);
+  static Widget h33 = SizedBox(height: 33.h);
+  static Widget h34 = SizedBox(height: 34.h);
+  static Widget h35 = SizedBox(height: 35.h);
+  static Widget h36 = SizedBox(height: 36.h);
+  static Widget h37 = SizedBox(height: 37.h);
+  static Widget h38 = SizedBox(height: 38.h);
+  static Widget h40 = SizedBox(height: 40.h);
+  static Widget h42 = SizedBox(height: 42.h);
+  static Widget h44 = SizedBox(height: 44.h);
+  static Widget h45 = SizedBox(height: 45.h);
+  static Widget h47 = SizedBox(height: 47.h);
+  static Widget h48 = SizedBox(height: 48.h);
+  static Widget h50 = SizedBox(height: 50.h);
+  static Widget h55 = SizedBox(height: 55.h);
+  static Widget h57 = SizedBox(height: 57.h);
+  static Widget h60 = SizedBox(height: 60.h);
+  static Widget h70 = SizedBox(height: 70.h);
+  static Widget h81 = SizedBox(height: 81.h);
+  static Widget h63 = SizedBox(height: 63.h);
+  static Widget h64 = SizedBox(height: 64.h);
+  static Widget h77 = SizedBox(height: 77.h);
+  static Widget h100 = SizedBox(height: 100.h);
+  static Widget h90 = SizedBox(height: 90.h);
+  static Widget h80 = SizedBox(height: 80.h);
+
+
+  static Widget w1 = SizedBox(width: 1.w);
+  static Widget w2 = SizedBox(width: 2.w);
+  static Widget w3 = SizedBox(width: 3.w);
+  static Widget w4 = SizedBox(width: 4.w);
+  static Widget w5 = SizedBox(width: 5.w);
+  static Widget w6 = SizedBox(width: 6.w);
+  static Widget w7 = SizedBox(width: 7.w);
+  static Widget w8 = SizedBox(width: 8.w);
+  static Widget w9 = SizedBox(width: 9.w);
+  static Widget w10 = SizedBox(width: 10.w);
+  static Widget w12 = SizedBox(width: 12.w);
+  static Widget w15 = SizedBox(width: 15.w);
+  static Widget w16 = SizedBox(width: 16.w);
+  static Widget w17 = SizedBox(width: 17.w);
+  static Widget w18 = SizedBox(width: 18.w);
+  static Widget w20 = SizedBox(width: 20.w);
+  static Widget w22 = SizedBox(width: 22.w);
+  static Widget w25 = SizedBox(width: 25.w);
+  static Widget w30 = SizedBox(width: 30.w);
+  static Widget w40 = SizedBox(width: 40.w);
+  static Widget w50 = SizedBox(width: 50.w);
+  static Widget w56 = SizedBox(width: 56.w);
+  static Widget w60 = SizedBox(width: 60.w);
+  static Widget w62 = SizedBox(width: 62.w);
+  static Widget w71 = SizedBox(width: 71.w);
+  static Widget w75 = SizedBox(width: 75.w);
+  static Widget w88 = SizedBox(width: 88.w);
+  static Widget w98 = SizedBox(width: 98.w);
+  static Widget w106 = SizedBox(width: 106.w);
+  static Widget w117 = SizedBox(width: 117.w);
+  static Widget w24 = SizedBox(width: 24.w);
+
+}
