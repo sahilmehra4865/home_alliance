@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:home_alliance/utils/app_colors.dart';
 import 'package:home_alliance/utils/app_extensions.dart';
-import 'package:home_alliance/utils/app_images.dart';
-import 'package:home_alliance/widgets/image_view.dart';
-import 'package:home_alliance/widgets/scroll_behaviour.dart';
 
-import '../../helper/common_widgets.dart';
-import '../../utils/app_spacing.dart';
+import '../../../helper/common_widgets.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/app_images.dart';
+import '../../../utils/app_spacing.dart';
+import '../../../widgets/image_view.dart';
+import '../../../widgets/scroll_behaviour.dart';
 
-class OpenJobPage extends StatelessWidget {
-  const OpenJobPage({super.key});
+class OpenJobs extends StatelessWidget {
+  const OpenJobs({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +21,8 @@ class OpenJobPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: CommonWidgets.appBar(
-              "Back",
-              suffix: Container(
-                height: 32.h,
-                width: 111.w,
-                decoration: BoxDecoration(
-                  color: AppColors.colorFF4747,
-                  borderRadius: BorderRadius.circular(5.r),
-                ),
-                child: Center(
-                  child: Text("CLOSE JOB").boldText(AppColors.white, 14.sp),
-                ),
-              ),
+              "Open Jobs",
+
             ),
           ),
           Expanded(

@@ -30,14 +30,10 @@ class DashboardPage extends StatelessWidget {
 
   Widget bottomNavBar(DashboardPageController dashboardController) {
     return SizedBox(
-      height: AppDimensions.d93.h,
+      height: AppDimensions.d93,
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.white,
-          borderRadius: BorderRadius.only(
-          //  topLeft: Radius.circular(AppDimensions.d20.r),
-          //  topRight: Radius.circular(AppDimensions.d20.r),
-          ),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withValues(alpha: 0.1),
@@ -58,29 +54,34 @@ class DashboardPage extends StatelessWidget {
             ),
             Expanded(
               child: dashboardController.selectItem == 1
-                  ? activeBottomItem(AppImages.icFinanceFill,"Finance", 1, dashboardController)
-                  : inActiveBottomItem(
-                      AppImages.icFinance,"Finance"
-              ,                    1,
-                      dashboardController,
-                    ),
+                  ? activeBottomItem(AppImages.icJobsFill,"Jobs", 1, dashboardController)
+                  : inActiveBottomItem(AppImages.icJobs,"Jobs", 1, dashboardController),
             ),
-
-
-            Expanded(
-              child: dashboardController.selectItem == 2
-                  ? activeBottomItem(AppImages.icMetricsFill,"Metrics", 2, dashboardController)
-                  : inActiveBottomItem(
-                      AppImages.icMetrics,"Metrics",
-                      2,
-                      dashboardController,
-                    ),
-            ),
-            Expanded(
-              child: dashboardController.selectItem == 3
-                  ? activeBottomItem(AppImages.icJobsFill,"Jobs", 3, dashboardController)
-                  : inActiveBottomItem(AppImages.icJobs,"Jobs", 3, dashboardController),
-            ),
+            // Expanded(
+            //   child: dashboardController.selectItem == 1
+            //       ? activeBottomItem(AppImages.icFinanceFill,"Finance", 1, dashboardController)
+            //       : inActiveBottomItem(
+            //           AppImages.icFinance,"Finance"
+            //   ,                    1,
+            //           dashboardController,
+            //         ),
+            // ),
+            //
+            //
+            // Expanded(
+            //   child: dashboardController.selectItem == 2
+            //       ? activeBottomItem(AppImages.icMetricsFill,"Metrics", 2, dashboardController)
+            //       : inActiveBottomItem(
+            //           AppImages.icMetrics,"Metrics",
+            //           2,
+            //           dashboardController,
+            //         ),
+            // ),
+            // Expanded(
+            //   child: dashboardController.selectItem == 3
+            //       ? activeBottomItem(AppImages.icJobsFill,"Jobs", 3, dashboardController)
+            //       : inActiveBottomItem(AppImages.icJobs,"Jobs", 3, dashboardController),
+            // ),
           ],
         ),
       ),

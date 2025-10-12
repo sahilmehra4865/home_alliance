@@ -8,9 +8,14 @@ import '../../../utils/app_dimension.dart';
 
 class MetricsPageController extends GetxController{
   int selectType = 0;
+  int selectLeaderBoardType = 0;
   int selectedTab = 0;
   void updateSelectType(int val) {
     selectType = val;
+    update();
+  }
+  void updateSelectLeaderBoardType(int val) {
+    selectLeaderBoardType = val;
     update();
   }
 

@@ -47,4 +47,11 @@ class AppImages {
   static const String icCalendar= "${assetsPath}ic_calendar.svg";
   static const String icMagic= "${assetsPath}ic_magic.svg";
   static const String icInvoice= "${assetsPath}ic_invoice.svg";
+  static const String icPhInvoice= "${assetsPath}ic_ph_invoice.svg";
+  static const String icTaskApproved= "${assetsPath}ic_task_approved.svg";
+  static const String icCalendarC= "${assetsPath}ic_calander_c.svg";
+  static const String icCrown= "${assetsPath}ic_crown.png";
+  static const String icJhon= "${assetsPath}ic_jhon.png";
+
+
 }

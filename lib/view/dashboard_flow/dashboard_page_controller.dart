@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../comming_soon.dart';
 import 'Home/home_page.dart';
 import 'Home/home_var_page.dart';
 import 'finance/finance_page.dart';
@@ -26,8 +27,8 @@ class DashboardPageController extends GetxController {
 
   List<Widget> get widgetOptions => [
     const HomePage(), //   home ? const HomePage() : const HomeVarPage(),
-    const FinancePage(),
-    const MetricsPage(),
-    const JobsPage(),
+     //const FinancePage(),
+   //  MetricsPage(),
+   const JobsPage(),
   ];
 }

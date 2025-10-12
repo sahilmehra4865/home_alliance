@@ -24,7 +24,7 @@ class EstimationOutput extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 15.w),
+                SizedBox(height: 60.w),
                 CommonWidgets.appBar("Back"),
                 AppSpacing.h16,
                 ImageView(path: AppImages.icMagic, height: 35.h),

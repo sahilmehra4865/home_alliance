@@ -1,4 +1,4 @@
-package com.ha.home_alliance
+package com.homealliance.tech.app
 
 import io.flutter.embedding.android.FlutterActivity
 

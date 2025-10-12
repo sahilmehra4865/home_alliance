@@ -13,7 +13,8 @@ class Messages extends Translations {
       "recent_search":"Recent Search",
       "search_results":"Search Results",
       "notifications":"Notifications",
-      "performance_metrics":"Performance Metrics"
+      "performance_metrics":"Performance Metrics",
+      "invalid_credentials":"Invalid Credentials!"
     },
   };
 }

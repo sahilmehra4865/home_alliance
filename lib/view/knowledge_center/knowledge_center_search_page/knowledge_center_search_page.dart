@@ -19,49 +19,59 @@ class KnowledgeCenterSearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ScrollConfiguration(
-        behavior: NoGlowScrollBehavior(),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
+      body: Column(
+        children: [
+          SizedBox(height: 60.w),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: CommonWidgets.appBar(
+              "knowledge_center",
+              suffix: Text("cancel").semiBoldText(
+                AppColors.color333333,
+                AppDimensions.d16.sp,
+              ),
+            ),
+          ),
+          Expanded(
+            child: ScrollConfiguration(
+              behavior: NoGlowScrollBehavior(),
+              child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 15.w),
-                    CommonWidgets.appBar(
-                      "knowledge_center",
-                      suffix: Text("cancel").semiBoldText(
-                        AppColors.color333333,
-                        AppDimensions.d16.sp,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                        
+                          AppSpacing.h40,
+                          Text(
+                            "need_assistance",
+                          ).boldText(AppColors.color333333, AppDimensions.d20.sp),
+                          AppSpacing.h19,
+            
+                          // Search Field
+                          SearchTextField(
+                            controller: TextEditingController(),
+                            hint: "ask_anything".tr,
+                          ),
+                          AppSpacing.h26,
+                          Container(
+                            height: 1.h,
+                            width: double.maxFinite,
+                            color: AppColors.colorCCCCCC,
+                          ),
+                          AppSpacing.h26,
+                          RecentSearchWidget(),
+                        ],
                       ),
                     ),
-                    AppSpacing.h40,
-                    Text(
-                      "need_assistance",
-                    ).boldText(AppColors.color333333, AppDimensions.d20.sp),
-                    AppSpacing.h19,
-
-                    // Search Field
-                    SearchTextField(
-                      controller: TextEditingController(),
-                      hint: "ask_anything".tr,
-                    ),
-                    AppSpacing.h26,
-                    Container(
-                      height: 1.h,
-                      width: double.maxFinite,
-                      color: AppColors.colorCCCCCC,
-                    ),
-                    AppSpacing.h26,
-                    RecentSearchWidget(),
                   ],
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

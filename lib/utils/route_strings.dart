@@ -19,7 +19,8 @@ class RouteString {
   static const String createInvoicePage = "/createInvoicePage";
   static const String aiEstimation = "/aiEstimation";
   static const String estimationOutput = "/estimationOutput";
-  static const String createInvoicePreview="/createInvoicePreview";
-  static const String salesPipeline="/salesPipeline";
-
-  }
+  static const String createInvoicePreview = "/createInvoicePreview";
+  static const String salesPipeline = "/salesPipeline";
+  static const String leaderBoardPage = "/leaderBoardPage";
+  static const String openJobs = "/openJobs";
+}

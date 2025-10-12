@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:home_alliance/view/authentication/login.dart';
+import 'package:home_alliance/view/dashboard_flow/metrics/leader_board_page.dart';
 import 'package:home_alliance/view/estimation/ai_estimation.dart';
 import 'package:home_alliance/view/estimation/estimation_output.dart';
 import 'package:home_alliance/view/invoice/create_invoice.dart';
@@ -91,6 +92,16 @@ class Routes {
       middlewares: [RouteMiddleware()],
       name: RouteString.salesPipeline,
       page: () => const SalesPipeline(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.leaderBoardPage,
+      page: () =>  LeaderBoardPage(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.openJobs,
+      page: () =>  LeaderBoardPage(),
     ),
   ];
 }

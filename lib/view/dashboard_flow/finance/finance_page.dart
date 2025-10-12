@@ -26,7 +26,7 @@ class FinancePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 15.w),
+                SizedBox(height: 60.h),
                 Text(
                   financeController.isIncome
                       ? "Total Earnings"
@@ -156,140 +156,157 @@ class FinancePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 17.h),
-
-                // Chart Card
-                Container(
-                  padding: EdgeInsets.only(left: 14.w, right: 24.w),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.r),
-                    border: BoxBorder.all(color: AppColors.colorF5F5F5),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AppSpacing.h24,
-                      Row(
-                        children: [
-                          Text("Comparison").boldText(
-                            AppColors.color333333,
-                            AppDimensions.d15.sp,
-                          ),
-                          Spacer(),
-                          Container(
-                            height: 7.h,
-                            width: 7.w,
-                            decoration: BoxDecoration(
-                              color: financeController.isIncome
-                                  ? AppColors.color31974C
-                                  : AppColors.colorDD2E44,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          AppSpacing.w5,
-                          Text("This Week").regularText(
-                            AppColors.color333333,
-                            AppDimensions.d11.sp,
-                          ),
-                          AppSpacing.w15,
-                          Container(
-                            height: 7.h,
-                            width: 7.w,
-                            decoration: BoxDecoration(
-                              color: financeController.isIncome
-                                  ? AppColors.color50FB7E
-                                  : AppColors.colorFFC6C6,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          AppSpacing.w5,
-                          Text("Last Week").regularText(
-                            AppColors.color333333,
-                            AppDimensions.d11.sp,
-                          ),
-                        ],
-                      ),
-                      AppSpacing.h30,
-                      SizedBox(
-                        height: 200,
-                        child: _BarChart(financeController),
-                      ),
-                       SizedBox(height: 25.h),
-                      Row(
-                        children: [
-                          Container(
-                            height: 7.h,
-                            width: 7.w,
-                            decoration: BoxDecoration(
-                              color: financeController.isIncome
-                                  ? AppColors.color50FB7E
-                                  : AppColors.colorFFC6C6,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          AppSpacing.w4,
-                          Text(
-                            "Last Week Total: ",
-                          ).regularText(AppColors.black, AppDimensions.d10.sp),
-                          Text(
-                            "\$880",
-                          ).boldText(AppColors.black, AppDimensions.d10.sp),
-                          Spacer(),
-                          Text(
-                            "This Week Total: ",
-                          ).regularText(AppColors.black, AppDimensions.d10.sp),
-                          Text(
-                            "\$1,256",
-                          ).boldText(AppColors.black, AppDimensions.d10.sp),
-                          AppSpacing.w4,
-                          Icon(
-                            financeController.isIncome
-                                ? Icons.keyboard_arrow_up
-                                : Icons.keyboard_arrow_down,
-                            color: AppColors.color34A853,
-                            opticalSize: 10,
-                            grade: 10,
-                            weight: 10,
-                            size: 18,
-                          ),
-                        ],
-                      ),
-                      AppSpacing.h10,
-                    ],
-                  ),
-                ),
-                AppSpacing.h40,
-
-                // Transaction History
-                Text(
-                  "Transaction History",
-                ).boldText(AppColors.color333333, AppDimensions.d15.sp),
-                AppSpacing.h20,
                 Expanded(
                   child: ScrollConfiguration(
                     behavior: NoGlowScrollBehavior(),
                     child: SingleChildScrollView(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _transactionTile(
-                            "Sarah J Parker",
-                            "Appliance Repair",
-                            financeController.isIncome ? "+\$600" : "-\$700",
-                            "May 7, 2025",
-                            financeController.isIncome
-                                ? AppColors.color34A853
-                                : AppColors.colorDD2E44,
-                              financeController.isIncome
+                          // Chart Card
+                          Container(
+                            padding: EdgeInsets.only(left: 14.w, right: 24.w),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.r),
+                              border: BoxBorder.all(
+                                color: AppColors.colorF5F5F5,
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppSpacing.h24,
+                                Row(
+                                  children: [
+                                    Text("Comparison").boldText(
+                                      AppColors.color333333,
+                                      AppDimensions.d15.sp,
+                                    ),
+                                    Spacer(),
+                                    Container(
+                                      height: 7.h,
+                                      width: 7.w,
+                                      decoration: BoxDecoration(
+                                        color: financeController.isIncome
+                                            ? AppColors.color31974C
+                                            : AppColors.colorDD2E44,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    AppSpacing.w5,
+                                    Text("This Week").regularText(
+                                      AppColors.color333333,
+                                      AppDimensions.d11.sp,
+                                    ),
+                                    AppSpacing.w15,
+                                    Container(
+                                      height: 7.h,
+                                      width: 7.w,
+                                      decoration: BoxDecoration(
+                                        color: financeController.isIncome
+                                            ? AppColors.color50FB7E
+                                            : AppColors.colorFFC6C6,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    AppSpacing.w5,
+                                    Text("Last Week").regularText(
+                                      AppColors.color333333,
+                                      AppDimensions.d11.sp,
+                                    ),
+                                  ],
+                                ),
+                                AppSpacing.h30,
+                                SizedBox(
+                                  height: 200,
+                                  child: _BarChart(financeController),
+                                ),
+                                SizedBox(height: 25.h),
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 7.h,
+                                      width: 7.w,
+                                      decoration: BoxDecoration(
+                                        color: financeController.isIncome
+                                            ? AppColors.color50FB7E
+                                            : AppColors.colorFFC6C6,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    AppSpacing.w4,
+                                    Text("Last Week Total: ").regularText(
+                                      AppColors.black,
+                                      AppDimensions.d10.sp,
+                                    ),
+                                    Text("\$880").boldText(
+                                      AppColors.black,
+                                      AppDimensions.d10.sp,
+                                    ),
+                                    Spacer(),
+                                    Text("This Week Total: ").regularText(
+                                      AppColors.black,
+                                      AppDimensions.d10.sp,
+                                    ),
+                                    Text("\$1,256").boldText(
+                                      AppColors.black,
+                                      AppDimensions.d10.sp,
+                                    ),
+                                    AppSpacing.w4,
+                                    Icon(
+                                      financeController.isIncome
+                                          ? Icons.keyboard_arrow_up
+                                          : Icons.keyboard_arrow_down,
+                                      color: financeController.isIncome
+                                          ? AppColors.color34A853
+                                          : AppColors.colorFF4747,
+                                      opticalSize: 10,
+                                      grade: 10,
+                                      weight: 10,
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                                AppSpacing.h10,
+                              ],
+                            ),
                           ),
-                          _transactionTile(
-                            "Ariel Flores",
-                            "Appliance Repair",
-                            financeController.isIncome ? "+\$600" : "-\$700",
-                            "May 8, 2025",
-                            financeController.isIncome
-                                ? AppColors.color34A853
-                                : AppColors.colorDD2E44,
-                              financeController.isIncome
+                          AppSpacing.h40,
+
+                          // Transaction History
+                          Text("Transaction History").boldText(
+                            AppColors.color333333,
+                            AppDimensions.d15.sp,
+                          ),
+                          AppSpacing.h20,
+                          Column(
+                            children: [
+                              _transactionTile(
+                                "Sarah J Parker",
+                                "Appliance Repair",
+                                financeController.isIncome
+                                    ? "+\$600"
+                                    : "-\$700",
+                                "May 7, 2025",
+                                financeController.isIncome
+                                    ? AppColors.color34A853
+                                    : AppColors.colorDD2E44,
+                                financeController.isIncome,
+                              ),
+                              _transactionTile(
+                                "Ariel Flores",
+                                "Appliance Repair",
+                                financeController.isIncome
+                                    ? "+\$600"
+                                    : "-\$700",
+                                "May 8, 2025",
+                                financeController.isIncome
+                                    ? AppColors.color34A853
+                                    : AppColors.colorDD2E44,
+                                financeController.isIncome,
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -310,7 +327,7 @@ class FinancePage extends StatelessWidget {
     String amount,
     String date,
     Color priceColor,
-      bool isIncome,
+    bool isIncome,
   ) {
     return GestureDetector(
       onTap: () {

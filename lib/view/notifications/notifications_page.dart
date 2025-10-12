@@ -42,19 +42,19 @@ class NotificationsPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 15.w),
+          SizedBox(height: 60.w),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: CommonWidgets.appBar("notifications"),
           ),
 
-          AppSpacing.h35,
+          AppSpacing.h5,
           Expanded(
             child: ScrollConfiguration(
               behavior: NoGlowScrollBehavior(),
               child: ListView.separated(
                 itemCount: notifications.length,
-                padding: EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(bottom: 10.h,top: 30.h),
                 separatorBuilder: (_, __) => Container(),
                 itemBuilder: (context, index) {
                   final item = notifications[index];

@@ -23,173 +23,190 @@ class HomeVarPage extends StatelessWidget {
       builder: (homePageController) {
         return Scaffold(
           backgroundColor: AppColors.colorF5F5F5,
-          body: ScrollConfiguration(
-            behavior: NoGlowScrollBehavior(),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppDimensions.d10.w,
-                    ),
+          body: Column(
+            children: [
+              Container(height: AppDimensions.d35.h),
+
+              Expanded(
+                child: ScrollConfiguration(
+                  behavior: NoGlowScrollBehavior(),
+                  child: SingleChildScrollView(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 15.w),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                ImageView(
-                                  path: AppImages.icEmptyProfile,
-                                  height: AppDimensions.d42.h,
-                                  width: AppDimensions.d42.w,
-                                  circleCrop: true,
-                                ),
-                                SizedBox(width: 10.w),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text("Welcome back,").regularText(
-                                      AppColors.color333333,
-                                      AppDimensions.d12.sp,
-                                    ),
-                                    Text("Ralph").boldText(
-                                      AppColors.color333333,
-                                      AppDimensions.d20.sp,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  behavior: HitTestBehavior.translucent,
-                                  onTap: () {
-                                    Get.toNamed(
-                                      RouteString.knowledgeCenterPage,
-                                    );
-                                  },
-                                  child: Container(
-                                    height: AppDimensions.d42.h,
-                                    width: AppDimensions.d42.w,
-
-                                    decoration: BoxDecoration(
-                                      color: AppColors.white,
-                                      borderRadius: BorderRadius.circular(
-                                        AppDimensions.d100.r,
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: AppDimensions.d10.w,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 15.w),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      ImageView(
+                                        path: AppImages.icEmptyProfile,
+                                        height: AppDimensions.d42.h,
+                                        width: AppDimensions.d42.w,
+                                        circleCrop: true,
                                       ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: ImageView(
-                                        path: AppImages.icQuestionMark,
+                                      SizedBox(width: 10.w),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text("Welcome back,").regularText(
+                                            AppColors.color333333,
+                                            AppDimensions.d12.sp,
+                                          ),
+                                          Text("Ralph").boldText(
+                                            AppColors.color333333,
+                                            AppDimensions.d20.sp,
+                                          ),
+                                        ],
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ),
+                                  Row(
+                                    children: [
+                                      GestureDetector(
+                                        behavior: HitTestBehavior.translucent,
+                                        onTap: () {
+                                          Get.toNamed(
+                                            RouteString.knowledgeCenterPage,
+                                          );
+                                        },
+                                        child: Container(
+                                          height: AppDimensions.d42.h,
+                                          width: AppDimensions.d42.w,
 
-                                SizedBox(width: 8),
-                                Stack(
-                                  children: [
-                                    Container(
-                                      height: AppDimensions.d42.h,
-                                      width: AppDimensions.d42.w,
-
-                                      decoration: BoxDecoration(
-                                        color: AppColors.white,
-                                        borderRadius: BorderRadius.circular(
-                                          AppDimensions.d100.r,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: ImageView(
-                                          path: AppImages.icNotification,
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      right: 0,
-                                      child: Container(
-                                        height: AppDimensions.d10.h,
-                                        width: AppDimensions.d10.w,
-                                        decoration: BoxDecoration(
-                                          color: AppColors.colorDD2E44,
-                                          borderRadius: BorderRadius.circular(
-                                            AppDimensions.d100.r,
+                                          decoration: BoxDecoration(
+                                            color: AppColors.white,
+                                            borderRadius: BorderRadius.circular(
+                                              AppDimensions.d100.r,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10.0),
+                                            child: ImageView(
+                                              path: AppImages.icQuestionMark,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+
+                                      SizedBox(width: 8),
+                                      Stack(
+                                        children: [
+                                          Container(
+                                            height: AppDimensions.d42.h,
+                                            width: AppDimensions.d42.w,
+
+                                            decoration: BoxDecoration(
+                                              color: AppColors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    AppDimensions.d100.r,
+                                                  ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(
+                                                10.0,
+                                              ),
+                                              child: ImageView(
+                                                path: AppImages.icNotification,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            right: 0,
+                                            child: Container(
+                                              height: AppDimensions.d10.h,
+                                              width: AppDimensions.d10.w,
+                                              decoration: BoxDecoration(
+                                                color: AppColors.colorDD2E44,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                      AppDimensions.d100.r,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              AppSpacing.h20,
+                              earnings(homePageController),
+                            ],
+                          ),
                         ),
-                        AppSpacing.h20,
-                        earnings(homePageController),
+                        SizedBox(height: 40.h),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 22.w),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  _menuItem(
+                                    icon: AppImages.icPendingTask,
+                                    label: "Invoices",
+                                    badgeCount: 2,
+                                  ),
+                                  _menuItem(
+                                    icon: AppImages.icSales,
+                                    label: "Sales",
+                                    onTap: (){
+                                      Get.toNamed(RouteString.salesPipeline);
+                                    }
+                                  ),
+                                  _menuItem(
+                                    icon: AppImages.icCompleted,
+                                    label: "Completed",
+                                  ),
+                                  _menuItem(
+                                    icon: AppImages.icCancel,
+                                    label: "Cancelled",
+                                  ),
+                                ],
+                              ),
+                              AppSpacing.h40,
+                              // Upcoming Jobs + View All
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Upcoming Jobs (6)").boldText(
+                                    AppColors.color333333,
+                                    AppDimensions.d14.sp,
+                                  ),
+                                  Text("View All").regularText(
+                                    AppColors.color3332CA,
+                                    AppDimensions.d14.sp,
+                                  ),
+                                ],
+                              ),
+                              AppSpacing.h10,
+                              jobList(homePageController),
+
+                              SizedBox(height: 57.h),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 40.h),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 22.w),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            _menuItem(
-                              icon: AppImages.icPendingTask,
-                              label: "Invoices",
-                              badgeCount: 2,
-                            ),
-                            _menuItem(icon: AppImages.icSales, label: "Sales"),
-                            _menuItem(
-                              icon: AppImages.icCompleted,
-                              label: "Completed",
-                            ),
-                            _menuItem(
-                              icon: AppImages.icCancel,
-                              label: "Cancelled",
-                            ),
-                          ],
-                        ),
-                        AppSpacing.h40,
-                        // Upcoming Jobs + View All
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Upcoming Jobs (6)").boldText(
-                              AppColors.color333333,
-                              AppDimensions.d14.sp,
-                            ),
-                            Text(
-                              "View All",
-                            ).regularText(
-                              AppColors.color3332CA,
-                              AppDimensions.d14.sp,
-                            ),
-                          ],
-                        ),
-                        AppSpacing.h10,
-                        jobList(homePageController),
-
-
-                        SizedBox(height: 57.h),
-
-
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         );
       },
@@ -199,6 +216,7 @@ class HomeVarPage extends StatelessWidget {
   Widget _menuItem({
     required String icon,
     required String label,
+    VoidCallback? onTap,
     int badgeCount = 0,
   }) {
     return Column(
@@ -206,20 +224,23 @@ class HomeVarPage extends StatelessWidget {
         Stack(
           clipBehavior: Clip.none,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5.r),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 4,
-                    offset: Offset(0, 2),
-                  ),
-                ],
+            GestureDetector(
+              onTap: onTap ?? () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 4,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(19),
+                child: ImageView(path: icon),
               ),
-              padding: EdgeInsets.all(19),
-              child: ImageView(path: icon),
             ),
             if (badgeCount > 0)
               Positioned(
@@ -249,7 +270,7 @@ class HomeVarPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 20.h),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppColors.primaryDrk, AppColors.primaryLight],
+          colors: [AppColors.color1F2436, AppColors.color293359],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -286,14 +307,14 @@ class HomeVarPage extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                           color: controller.isWeekly
-                              ? AppColors.primaryDrk
+                              ? AppColors.color293359
                               : AppColors.white,
                           borderRadius: BorderRadius.circular(3.r),
                         ),
                         child: Text("Weekly").regularText(
                           controller.isWeekly
                               ? AppColors.white
-                              : AppColors.primaryColor,
+                              : AppColors.color293359,
                           AppDimensions.d14.sp,
                         ),
                       ),
@@ -311,14 +332,14 @@ class HomeVarPage extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                           color: !controller.isWeekly
-                              ? AppColors.primaryDrk
+                              ? AppColors.color293359
                               : AppColors.white,
                           borderRadius: BorderRadius.circular(3.r),
                         ),
                         child: Text("Monthly").regularText(
                           !controller.isWeekly
                               ? AppColors.white
-                              : AppColors.primaryColor,
+                              : AppColors.color293359,
                           AppDimensions.d14.sp,
                         ),
                       ),
@@ -346,8 +367,9 @@ class HomeVarPage extends StatelessWidget {
       ),
     );
   }
-  Widget jobList(HomePageController controller){
-    return  ListView.separated(
+
+  Widget jobList(HomePageController controller) {
+    return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: controller.jobs.length,
@@ -373,7 +395,7 @@ class HomeVarPage extends StatelessWidget {
                 ],
               ),
               child: ImageView(
-               path: job["icon"],
+                path: job["icon"],
                 color: const Color(0xFF1A2A4A), // navy color
               ),
             ),
@@ -387,14 +409,15 @@ class HomeVarPage extends StatelessWidget {
                   Text(
                     job["title"] as String,
                   ).boldText(AppColors.color293359, AppDimensions.d17.sp),
-                   SizedBox(height: 5.h),
+                  SizedBox(height: 5.h),
                   Text(
                     job["time"] as String,
                   ).regularText(AppColors.color333333, AppDimensions.d14.sp),
-                   SizedBox(height: 5.h),
-                  Text(
-                    job["address"] as String
-                  ).regularText(AppColors.color333333.withValues(alpha: 0.6), AppDimensions.d14.sp),
+                  SizedBox(height: 5.h),
+                  Text(job["address"] as String).regularText(
+                    AppColors.color333333.withValues(alpha: 0.6),
+                    AppDimensions.d14.sp,
+                  ),
                 ],
               ),
             ),

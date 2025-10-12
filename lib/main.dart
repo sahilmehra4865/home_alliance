@@ -3,7 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:home_alliance/utils/app_theme.dart';
+import 'package:home_alliance/view/dashboard_flow/Home/home_var_page.dart';
 import 'package:home_alliance/view/dashboard_flow/dashboard_page.dart';
+import 'package:home_alliance/view/dashboard_flow/metrics/metrics_page.dart';
+import 'package:home_alliance/view/sales_pipeline/sales_pipeIine.dart';
 import 'package:home_alliance/view/splash_page.dart';
 import 'helper/binding/application_binding.dart';
 import 'helper/routes.dart';
@@ -29,24 +32,22 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return SafeArea(
-          child: GetMaterialApp(
-            debugShowCheckedModeBanner: false,
-            builder: (context, child) => GestureDetector(
-              onTap: () {
-                FocusScope.of(context).requestFocus(FocusNode());
-              },
-              child: child,
-            ),
-            theme: AppTheme.light,
-            themeMode: ThemeMode.light,
-            home: /*DashboardPage(),*/ const SplashPage(),
-            navigatorKey: Routes.navigatorKey,
-            getPages: Routes.pages,
-            initialBinding: ApplicationBinding(),
-            translations: Messages(),
-            locale: const Locale('en', 'US'),
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          builder: (context, child) => GestureDetector(
+            onTap: () {
+              FocusScope.of(context).requestFocus(FocusNode());
+            },
+            child: child,
           ),
+          theme: AppTheme.light,
+          themeMode: ThemeMode.light,
+          home: const SplashPage(),
+          navigatorKey: Routes.navigatorKey,
+          getPages: Routes.pages,
+          initialBinding: ApplicationBinding(),
+          translations: Messages(),
+          locale: const Locale('en', 'US'),
         );
       },
     );

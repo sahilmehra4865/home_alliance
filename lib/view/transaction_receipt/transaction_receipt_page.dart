@@ -35,17 +35,43 @@ class TransactionReceiptPage extends StatelessWidget {
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         decoration: const BoxDecoration(
-                          color: Color(0xFF1F2C6C),
+                          color: AppColors.color293359,
                         ),
                         child: Column(
                           children: [
-                            AppSpacing.h50,
-                            Text(
-                              "+\$600.00",
-                            ).boldText(AppColors.color50FB7E, AppDimensions.d30.sp),
-                            const Text(
-                              "via Paypal"
-                            ).regularText(AppColors.white, AppDimensions.d16.sp),
+                            AppSpacing.h30,
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 21.w),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    behavior: HitTestBehavior.translucent,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: const Icon(
+                                      Icons.arrow_back,
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                  AppSpacing.w10,
+                                  Text("Receipt").semiBoldText(
+                                    AppColors.white,
+                                    AppDimensions.d16.sp,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            AppSpacing.h40,
+                            Text("+\$600.00").boldText(
+                              AppColors.color50FB7E,
+                              AppDimensions.d30.sp,
+                            ),
+                            const Text("via Paypal").regularText(
+                              AppColors.white,
+                              AppDimensions.d16.sp,
+                            ),
                             AppSpacing.h70,
                           ],
                         ),
@@ -66,13 +92,14 @@ class TransactionReceiptPage extends StatelessWidget {
                               size: 30,
                             ),
                           ),
-                        ))
+                        ),
+                      ),
                     ],
                   ),
-                   AppSpacing.h48,
+                  AppSpacing.h48,
                   // Description Section
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 21.w),
+                    padding: EdgeInsets.symmetric(horizontal: 21.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -103,7 +130,9 @@ class TransactionReceiptPage extends StatelessWidget {
                             SizedBox(width: 10.w),
                             GestureDetector(
                               onTap: () {
-                                transactionController.updateInvoiceToggle(false);
+                                transactionController.updateInvoiceToggle(
+                                  false,
+                                );
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(
@@ -125,28 +154,38 @@ class TransactionReceiptPage extends StatelessWidget {
                           ],
                         ),
                         AppSpacing.h44,
-                        const Text("Description").
-                        semiBoldText(AppColors.color333333, AppDimensions.d16.sp),
+                        const Text("Description").semiBoldText(
+                          AppColors.color333333,
+                          AppDimensions.d16.sp,
+                        ),
                         AppSpacing.h10,
-                         Divider(color: AppColors.colorCCCCCC),
+                        Divider(color: AppColors.colorCCCCCC),
                         AppSpacing.h16,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:  [
-                            Text("Service Type").semiBoldText(AppColors.color333333,
-                                AppDimensions.d14.sp),
-                            Text("Appliance Repair").regularText(AppColors.color333333,
-                                AppDimensions.d14.sp),
+                          children: [
+                            Text("Service Type").semiBoldText(
+                              AppColors.color333333,
+                              AppDimensions.d14.sp,
+                            ),
+                            Text("Appliance Repair").regularText(
+                              AppColors.color333333,
+                              AppDimensions.d14.sp,
+                            ),
                           ],
                         ),
                         AppSpacing.h20,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:  [
-                            Text("Payment Date").semiBoldText(AppColors.color333333,
-                                AppDimensions.d14.sp),
-                            Text("May 6th, 2025").regularText(AppColors.color333333,
-                                AppDimensions.d14.sp),
+                          children: [
+                            Text("Payment Date").semiBoldText(
+                              AppColors.color333333,
+                              AppDimensions.d14.sp,
+                            ),
+                            Text("May 6th, 2025").regularText(
+                              AppColors.color333333,
+                              AppDimensions.d14.sp,
+                            ),
                           ],
                         ),
                         AppSpacing.h48,
@@ -154,22 +193,39 @@ class TransactionReceiptPage extends StatelessWidget {
                         // Table Header
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:  [
+                          children: [
                             Expanded(
-                              flex:5,
-                              child: Text("Item Service").semiBoldText(AppColors.color333333,
-                                AppDimensions.d14.sp),),
+                              flex: 5,
+                              child: Text("Item Service").semiBoldText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                              ),
+                            ),
 
                             Expanded(
-                                flex:2,
-                                child:Text("Price").semiBoldText(AppColors.color333333,
-                                AppDimensions.d14.sp,align: TextAlign.right)),
-                              Expanded(
-                                  flex:2,child: Text("Qty").semiBoldText(AppColors.color333333,
-                                AppDimensions.d14.sp,align: TextAlign.right)),
-                                Expanded(
-                                    flex:3,child:Text("Total").semiBoldText(AppColors.color333333,
-                                AppDimensions.d14.sp,align: TextAlign.right)),
+                              flex: 2,
+                              child: Text("Price").semiBoldText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Text("Qty").semiBoldText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 3,
+                              child: Text("Total").semiBoldText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
                           ],
                         ),
                         AppSpacing.h13,
@@ -179,33 +235,48 @@ class TransactionReceiptPage extends StatelessWidget {
                         // Row 1
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:  [
+                          children: [
                             Expanded(
-                              flex:5,
+                              flex: 5,
                               child: Row(
                                 children: [
                                   ImageView(
-                                    path:AppImages.icBox,
-                                  height: 24.h,
-                                  width: 24.w,),
+                                    path: AppImages.icBox,
+                                    height: 24.h,
+                                    width: 24.w,
+                                  ),
                                   SizedBox(width: 10.w),
-                                  Text("Pipes").regularText(AppColors.color333333,
-                                      AppDimensions.d16.sp),
+                                  Text("Pipes").regularText(
+                                    AppColors.color333333,
+                                    AppDimensions.d16.sp,
+                                  ),
                                 ],
                               ),
                             ),
                             Expanded(
-                              flex:2,
-                              child:Text("\$200").regularText(AppColors.color333333,
-                                AppDimensions.d14.sp,align: TextAlign.right)),
+                              flex: 2,
+                              child: Text("\$200").regularText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
                             Expanded(
-                              flex:2,
-                              child:Text("2").regularText(AppColors.color333333,
-                                AppDimensions.d14.sp,align: TextAlign.right)),
+                              flex: 2,
+                              child: Text("2").regularText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
                             Expanded(
-                              flex:3,
-                              child: Text("\$200.00").regularText(AppColors.color333333,
-                                AppDimensions.d14.sp,align: TextAlign.right)),
+                              flex: 3,
+                              child: Text("\$200.00").regularText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
                           ],
                         ),
                         AppSpacing.h40,
@@ -213,33 +284,48 @@ class TransactionReceiptPage extends StatelessWidget {
                         // Row 2
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:  [
+                          children: [
                             Expanded(
-                              flex:5,
+                              flex: 5,
                               child: Row(
                                 children: [
                                   ImageView(
-                                    path:AppImages.icTool,
+                                    path: AppImages.icTool,
                                     height: 24.h,
-                                    width: 24.w,),
+                                    width: 24.w,
+                                  ),
                                   SizedBox(width: 10.w),
-                                  Text("Repair").regularText(AppColors.color333333,
-                                      AppDimensions.d16.sp),
+                                  Text("Repair").regularText(
+                                    AppColors.color333333,
+                                    AppDimensions.d16.sp,
+                                  ),
                                 ],
                               ),
                             ),
                             Expanded(
-                                flex:2,
-                                child:Text("\$200").regularText(AppColors.color333333,
-                                    AppDimensions.d14.sp,align: TextAlign.right)),
+                              flex: 2,
+                              child: Text("\$200").regularText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
                             Expanded(
-                                flex:2,
-                                child:Text("1").regularText(AppColors.color333333,
-                                    AppDimensions.d14.sp,align: TextAlign.right)),
+                              flex: 2,
+                              child: Text("1").regularText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
                             Expanded(
-                                flex:3,
-                                child: Text("\$200.00").regularText(AppColors.color333333,
-                                    AppDimensions.d14.sp,align: TextAlign.right)),
+                              flex: 3,
+                              child: Text("\$200.00").regularText(
+                                AppColors.color333333,
+                                AppDimensions.d14.sp,
+                                align: TextAlign.right,
+                              ),
+                            ),
                           ],
                         ),
                         AppSpacing.h50,
@@ -259,32 +345,34 @@ class TransactionReceiptPage extends StatelessWidget {
                         // Total Amount
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:  [
-                            Text("Total Amount")
-                                .boldText(AppColors.color333333,
-                                AppDimensions.d16.sp)
-                            ,
-                            Text("\$600.00") .boldText(AppColors.color333333,
-                                AppDimensions.d16.sp),
+                          children: [
+                            Text("Total Amount").boldText(
+                              AppColors.color333333,
+                              AppDimensions.d16.sp,
+                            ),
+                            Text("\$600.00").boldText(
+                              AppColors.color333333,
+                              AppDimensions.d16.sp,
+                            ),
                           ],
                         ),
                         AppSpacing.h24,
-
 
                         // Done Button
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
-                              height: 38.h,
-                              width: 110.w,
-                              decoration: BoxDecoration(
-                                  color: AppColors.color293359,
-                                  borderRadius: BorderRadius.circular(5.r)
-                              ),
-                              child:  Center(
-                                child: Text("Done") .boldText(AppColors.white,
-                                    AppDimensions.d14.sp),
-                              )
+                            height: 38.h,
+                            width: 110.w,
+                            decoration: BoxDecoration(
+                              color: AppColors.color293359,
+                              borderRadius: BorderRadius.circular(5.r),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Done",
+                              ).boldText(AppColors.white, AppDimensions.d14.sp),
+                            ),
                           ),
                         ),
                         AppSpacing.h24,
@@ -296,7 +384,7 @@ class TransactionReceiptPage extends StatelessWidget {
             ),
           ),
         );
-      }
+      },
     );
   }
 }

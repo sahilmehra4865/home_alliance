@@ -19,81 +19,90 @@ class KnowledgeCenterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ScrollConfiguration(
-        behavior: NoGlowScrollBehavior(),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
+      body: Column(
+        children: [
+          SizedBox(height: 60.w),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: CommonWidgets.appBar("knowledge_center"),
+          ),
+          Expanded(
+            child: ScrollConfiguration(
+              behavior: NoGlowScrollBehavior(),
+              child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 15.w),
-                    CommonWidgets.appBar("knowledge_center"),
-                    AppSpacing.h40,
-                    Text(
-                      "need_assistance",
-                    ).boldText(AppColors.color333333, AppDimensions.d20.sp),
-                    AppSpacing.h19,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppSpacing.h40,
+                          Text(
+                            "need_assistance",
+                          ).boldText(AppColors.color333333, AppDimensions.d20.sp),
+                          AppSpacing.h19,
 
-                    // Search Field
-                    SearchTextField(
-                      controller: TextEditingController(),
-                      hint: "ask_anything".tr,
+                          // Search Field
+                          SearchTextField(
+                            controller: TextEditingController(),
+                            hint: "ask_anything".tr,
+                          ),
+                          AppSpacing.h35,
+
+                          // Browse by Category
+                          Text(
+                            "brows_by_categories",
+                          ).boldText(AppColors.color333333, AppDimensions.d16.sp),
+                          AppSpacing.h19,
+
+                          // Category Buttons
+                          _buildCategoryTile(AppImages.icBook, "Getting Started"),
+                          _buildCategoryTile(
+                            AppImages.icBag,
+                            "Job & Service Protocols",
+                          ),
+                          _buildCategoryTile(AppImages.icTools, "Tools & Equipment"),
+
+                          AppSpacing.h35,
+
+                          // Trending Topics
+                          Text(
+                            "trending_topics",
+                          ).boldText(AppColors.color333333, AppDimensions.d16.sp),
+                          AppSpacing.h26,
+
+                          // Horizontal Scroll
+                        ],
+                      ),
                     ),
-                    AppSpacing.h35,
-
-                    // Browse by Category
-                    Text(
-                      "brows_by_categories",
-                    ).boldText(AppColors.color333333, AppDimensions.d16.sp),
-                    AppSpacing.h19,
-
-                    // Category Buttons
-                    _buildCategoryTile(AppImages.icBook, "Getting Started"),
-                    _buildCategoryTile(
-                      AppImages.icBag,
-                      "Job & Service Protocols",
+                    SizedBox(
+                      height: 210.h,
+                      child: ScrollConfiguration(
+                        behavior: NoGlowScrollBehavior(),
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          padding: EdgeInsets.only(left: 20.w),
+                          children: [
+                            _buildTrendingCard(
+                              "How to Handle Late Arrivals",
+                              AppImages.icBusinessMan,
+                            ),
+                            AppSpacing.w25,
+                            _buildTrendingCard(
+                              "Complete Your Profile",
+                                AppImages.icBusinessMan,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                    _buildCategoryTile(AppImages.icTools, "Tools & Equipment"),
-
-                    AppSpacing.h35,
-
-                    // Trending Topics
-                    Text(
-                      "trending_topics",
-                    ).boldText(AppColors.color333333, AppDimensions.d16.sp),
-                    AppSpacing.h26,
-
-                    // Horizontal Scroll
                   ],
                 ),
               ),
-              SizedBox(
-                height: 210.h,
-                child: ScrollConfiguration(
-                  behavior: NoGlowScrollBehavior(),
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.only(left: 20.w),
-                    children: [
-                      _buildTrendingCard(
-                        "How to Handle Late Arrivals",
-                        AppImages.icBusinessMan,
-                      ),
-                      AppSpacing.w25,
-                      _buildTrendingCard(
-                        "Complete Your Profile",
-                          AppImages.icBusinessMan,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
