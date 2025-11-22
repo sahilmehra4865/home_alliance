@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:home_alliance/view/authentication/login.dart';
 import 'package:home_alliance/view/dashboard_flow/metrics/leader_board_page.dart';
@@ -7,6 +8,7 @@ import 'package:home_alliance/view/estimation/ai_estimation.dart';
 import 'package:home_alliance/view/estimation/estimation_output.dart';
 import 'package:home_alliance/view/invoice/create_invoice.dart';
 import 'package:home_alliance/view/invoice/create_invoice_preview.dart';
+import 'package:home_alliance/view/job_screens/job_info.dart';
 import 'package:home_alliance/view/knowledge_center/knowledge_center_page.dart';
 import 'package:home_alliance/view/knowledge_center/knowledge_center_search_page/knowledge_center_search_page.dart';
 import 'package:home_alliance/view/notifications/notifications_page.dart';
@@ -66,7 +68,10 @@ class Routes {
     GetPage(
       middlewares: [RouteMiddleware()],
       name: RouteString.openJobPage,
-      page: () => const OpenJobPage(),
+      page: () {
+        final args= Get.arguments as OpenJobPage;
+           return OpenJobPage(jobId: args.jobId,);
+      },
     ),
     GetPage(
       middlewares: [RouteMiddleware()],
@@ -102,6 +107,11 @@ class Routes {
       middlewares: [RouteMiddleware()],
       name: RouteString.openJobs,
       page: () =>  LeaderBoardPage(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.jobInfo,
+      page: () =>  JobInfoScreen(),
     ),
   ];
 }

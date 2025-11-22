@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:home_alliance/utils/app_images.dart';
 import 'package:home_alliance/widgets/image_view.dart';
 
+import '../helper/shared_prefs.dart';
 import '../utils/app_colors.dart';
 import '../utils/route_strings.dart';
 
@@ -26,7 +27,11 @@ class _SplashPageState extends State<SplashPage> {
       //User? user = await _auth.authStateChanges().first;
 
       // No user logged in, navigate to (Login) screen
-      Get.offNamedUntil(RouteString.loginPage, (route) => false);
+      if( SharedPrefs.prefs?.getBool(SharedPrefs.isLogin)==true){
+        Get.offNamedUntil(RouteString.dashboardPage, (route) => false);
+      }
+      else{Get.offNamedUntil(RouteString.loginPage, (route) => false);}
+
     });
   }
 

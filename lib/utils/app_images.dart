@@ -43,15 +43,31 @@ class AppImages {
   static const String icQuote = "${assetsPath}ic_quote.svg";
   static const String icPhone = "${assetsPath}ic_phone.svg";
   static const String icChat = "${assetsPath}ic_chat.svg";
-  static const String icDMap= "${assetsPath}ic_d_map.svg";
-  static const String icCalendar= "${assetsPath}ic_calendar.svg";
-  static const String icMagic= "${assetsPath}ic_magic.svg";
-  static const String icInvoice= "${assetsPath}ic_invoice.svg";
-  static const String icPhInvoice= "${assetsPath}ic_ph_invoice.svg";
-  static const String icTaskApproved= "${assetsPath}ic_task_approved.svg";
-  static const String icCalendarC= "${assetsPath}ic_calander_c.svg";
-  static const String icCrown= "${assetsPath}ic_crown.png";
-  static const String icJhon= "${assetsPath}ic_jhon.png";
-
-
+  static const String icDMap = "${assetsPath}ic_d_map.svg";
+  static const String icCalendar = "${assetsPath}ic_calendar.svg";
+  static const String icMagic = "${assetsPath}ic_magic.svg";
+  static const String icInvoice = "${assetsPath}ic_invoice.svg";
+  static const String icPhInvoice = "${assetsPath}ic_ph_invoice.svg";
+  static const String icTaskApproved = "${assetsPath}ic_task_approved.svg";
+  static const String icCalendarC = "${assetsPath}ic_calander_c.svg";
+  static const String icCrown = "${assetsPath}ic_crown.png";
+  static const String icJhon = "${assetsPath}ic_jhon.png";
+  static const String icReward = "${assetsPath}ic_reward.svg";
+  static const String icOpenFolder = "${assetsPath}ic_openFolder.svg";
+  static const String icBriefcase = "${assetsPath}ic_briefcase.svg";
+  static const String icNotes = "${assetsPath}ic_nots.svg";
+  static const String icQMark = "${assetsPath}ic_q_mark.svg";
+  static const String icLocation = "${assetsPath}ic_location.svg";
+  static const String icBg = "${assetsPath}ic_bg.png";
+  static const String icCalendarTik = "${assetsPath}ic_calander_tik.svg";
+  static const String icMenu = "${assetsPath}ic_menu.svg";
+  static const String icMapMark = "${assetsPath}ic_map_mark.png";
+  static const String icLeft = "${assetsPath}ic_left.svg";
+  static const String icArrived = "${assetsPath}ic_arrived.svg";
+  static const String icMoveLocation = "${assetsPath}ic_move_location.svg";
+  static const String icExit = "${assetsPath}ic_exit.svg";
+  static const String icEdit = "${assetsPath}ic_edit.svg";
+  static const String icMasterCard = "${assetsPath}ic_mastercard.svg";
+  static const String icImage = "${assetsPath}ic_image.svg";
+  static const String icRight = "${assetsPath}ic_right.svg";
 }

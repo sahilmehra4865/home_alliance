@@ -23,4 +23,5 @@ class RouteString {
   static const String salesPipeline = "/salesPipeline";
   static const String leaderBoardPage = "/leaderBoardPage";
   static const String openJobs = "/openJobs";
+  static const String jobInfo = "/jobInfo";
 }

@@ -4,18 +4,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:home_alliance/utils/app_theme.dart';
 import 'package:home_alliance/view/dashboard_flow/Home/home_var_page.dart';
+import 'package:home_alliance/view/dashboard_flow/Home/new_home.dart';
 import 'package:home_alliance/view/dashboard_flow/dashboard_page.dart';
 import 'package:home_alliance/view/dashboard_flow/metrics/metrics_page.dart';
+import 'package:home_alliance/view/job_screens/job_info.dart';
 import 'package:home_alliance/view/sales_pipeline/sales_pipeIine.dart';
 import 'package:home_alliance/view/splash_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'helper/binding/application_binding.dart';
 import 'helper/routes.dart';
+import 'helper/shared_prefs.dart';
 import 'helper/translations/translations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // SharedPrefs.prefs = await SharedPreferences.getInstance();
+  SharedPrefs.prefs = await SharedPreferences.getInstance();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   runApp(const MyApp());
@@ -42,7 +46,7 @@ class MyApp extends StatelessWidget {
           ),
           theme: AppTheme.light,
           themeMode: ThemeMode.light,
-          home: const SplashPage(),
+          home: DashboardPage(), //NewHomePage(), //const SplashPage(),
           navigatorKey: Routes.navigatorKey,
           getPages: Routes.pages,
           initialBinding: ApplicationBinding(),
