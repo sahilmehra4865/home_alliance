@@ -70,4 +70,13 @@ class AppImages {
   static const String icMasterCard = "${assetsPath}ic_mastercard.svg";
   static const String icImage = "${assetsPath}ic_image.svg";
   static const String icRight = "${assetsPath}ic_right.svg";
+  static const String icDelete = "${assetsPath}ic_delete.svg";
+  static const String icReload = "${assetsPath}ic_reload.svg";
+  static const String icCash= "${assetsPath}ic_cash.png";
+  static const String icNps= "${assetsPath}ic_nps.png";
+  static const String icNote= "${assetsPath}ic_note.svg";
+  static const String icRecept= "${assetsPath}ic_recipt.png";
+  static const String icPeople= "${assetsPath}ic_people.png";
+  static const String icRewards= "${assetsPath}ic_rewards_image.png";
+  static const String icAlert= "${assetsPath}ic_alert.png";
 }

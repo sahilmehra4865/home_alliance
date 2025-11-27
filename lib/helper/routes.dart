@@ -12,7 +12,13 @@ import 'package:home_alliance/view/job_screens/job_info.dart';
 import 'package:home_alliance/view/knowledge_center/knowledge_center_page.dart';
 import 'package:home_alliance/view/knowledge_center/knowledge_center_search_page/knowledge_center_search_page.dart';
 import 'package:home_alliance/view/notifications/notifications_page.dart';
+import 'package:home_alliance/view/nps_screen/nps_screen.dart';
 import 'package:home_alliance/view/open_job/open_job.dart';
+import 'package:home_alliance/view/profile_settings/profile_screen.dart';
+import 'package:home_alliance/view/profile_settings/settings_screen.dart';
+import 'package:home_alliance/view/rewards/how_to_earn_reward_screen.dart';
+import 'package:home_alliance/view/rewards/important_screen.dart';
+import 'package:home_alliance/view/rewards/rewards_screen.dart';
 import 'package:home_alliance/view/sales_pipeline/sales_pipeIine.dart';
 import 'package:home_alliance/view/splash_page.dart';
 import 'package:home_alliance/view/transaction_receipt/transaction_receipt_page.dart';
@@ -69,8 +75,8 @@ class Routes {
       middlewares: [RouteMiddleware()],
       name: RouteString.openJobPage,
       page: () {
-        final args= Get.arguments as OpenJobPage;
-           return OpenJobPage(jobId: args.jobId,);
+        final args = Get.arguments as OpenJobPage;
+        return OpenJobPage(jobId: args.jobId);
       },
     ),
     GetPage(
@@ -101,17 +107,47 @@ class Routes {
     GetPage(
       middlewares: [RouteMiddleware()],
       name: RouteString.leaderBoardPage,
-      page: () =>  LeaderBoardPage(),
+      page: () => LeaderBoardPage(),
     ),
     GetPage(
       middlewares: [RouteMiddleware()],
       name: RouteString.openJobs,
-      page: () =>  LeaderBoardPage(),
+      page: () => LeaderBoardPage(),
     ),
     GetPage(
       middlewares: [RouteMiddleware()],
       name: RouteString.jobInfo,
-      page: () =>  JobInfoScreen(),
+      page: () => JobInfoScreen(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.yourNpsScreen,
+      page: () => YourNpsScreen(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.rewardsScreen,
+      page: () => RewardsScreen(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.howToEarn,
+      page: () => HowToEarnRewardsScreen(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.importantScreen,
+      page: () => ImportantScreen(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.profileScreen,
+      page: () => ProfileScreen(),
+    ),
+    GetPage(
+      middlewares: [RouteMiddleware()],
+      name: RouteString.settingsScreen,
+      page: () => SettingsScreen(),
     ),
   ];
 }

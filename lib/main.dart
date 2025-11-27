@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           ),
           theme: AppTheme.light,
           themeMode: ThemeMode.light,
-          home: DashboardPage(), //NewHomePage(), //const SplashPage(),
+          home:const SplashPage(),
           navigatorKey: Routes.navigatorKey,
           getPages: Routes.pages,
           initialBinding: ApplicationBinding(),

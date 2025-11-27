@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:home_alliance/utils/app_extensions.dart';
+import 'package:home_alliance/widgets/drop_down.dart';
 
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_spacing.dart';
@@ -20,9 +21,18 @@ class _ReasonForRejectDialogState extends State<ReasonForRejectDialog> {
     "Service not in my skill set",
     "Customer issue or prior negative experience",
     "Price too low, not worth effort",
-    "Other (with text field)",
+    "Other",
   ];
+  final TextEditingController _controller = TextEditingController();
+  int _wordCount = 0;
 
+  void _updateWordCount(String text) {
+    setState(() {
+      _wordCount = text.trim().isEmpty
+          ? 0
+          : text.trim().split(RegExp(r'\s+')).length;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -40,38 +50,51 @@ class _ReasonForRejectDialogState extends State<ReasonForRejectDialog> {
             divider(),
             AppSpacing.h14,
             // Dropdown
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.r),
-                border: Border.all(color: AppColors.colorD9D9D9),
-              ),
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  hint: Text(
-                    "Select a reason",
-                  ).regularText(AppColors.colorD9D9D9, 14.sp),
-                  isExpanded: true,
-                  value: selectedReason,
-                  icon: Icon(Icons.keyboard_arrow_down_rounded),
-                  items: reasons
-                      .map(
-                        (reason) => DropdownMenuItem<String>(
-                          value: reason,
-                          child: Text(
-                            reason,
-                          ).regularText(AppColors.color555555, 14.sp),
+            MyDropDownWidget(itemList: reasons, hint: "Select a reason",
+              selectedValue: (value){
+                setState(() {
+                  selectedReason=value;
+                });
+              },
+            ),
+
+            if (selectedReason == "Other") ...{
+              SizedBox(height: 16.h),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 8.w),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: AppColors.colorD9D9D9),
+                ),
+                child: Column(
+                  children: [
+                    TextField(
+                      controller: _controller,
+                      onChanged: _updateWordCount,
+                      maxLines: 5,
+                      maxLength: 200,
+                      decoration: InputDecoration(
+                        hintText: "What do you have in mind?",
+                        hintStyle: TextStyle(
+                          color: AppColors.color333333.withValues(alpha: 0.2),
                         ),
-                      )
-                      .toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      selectedReason = value;
-                    });
-                  },
+                        counterText: "",
+                        contentPadding: EdgeInsets.all(0),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                    // Word count
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text("${_wordCount}/200 words").regularText(
+                        AppColors.color333333.withValues(alpha: 0.2),
+                        14.sp,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
+            },
 
             SizedBox(height: 24.h),
 
@@ -122,9 +145,8 @@ class _ReasonForRejectDialogState extends State<ReasonForRejectDialog> {
       ),
     );
   }
-
-
 }
+
 Widget divider() {
   return Column(
     children: [

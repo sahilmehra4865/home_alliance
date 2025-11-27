@@ -40,11 +40,16 @@ class NewHomePage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            ImageView(
-                              path: AppImages.icDummy,
-                              height: AppDimensions.d42.h,
-                              width: AppDimensions.d42.w,
-                              circleCrop: true,
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RouteString.profileScreen);
+                              },
+                              child: ImageView(
+                                path: AppImages.icDummy,
+                                height: AppDimensions.d42.h,
+                                width: AppDimensions.d42.w,
+                                circleCrop: true,
+                              ),
                             ),
                             SizedBox(width: 10.w),
                             Column(
@@ -67,20 +72,25 @@ class NewHomePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Container(
-                          height: AppDimensions.d42.h,
-                          width: AppDimensions.d42.w,
+                        GestureDetector(
+                          onTap: (){
+                            Get.toNamed(RouteString.rewardsScreen);
+                          },
+                          child: Container(
+                            height: AppDimensions.d42.h,
+                            width: AppDimensions.d42.w,
 
-                          decoration: BoxDecoration(
-                            color: AppColors.white,
-                            border: BoxBorder.all(color: AppColors.colorD9D9D9),
-                            borderRadius: BorderRadius.circular(
-                              AppDimensions.d8.r,
+                            decoration: BoxDecoration(
+                              color: AppColors.white,
+                              border: BoxBorder.all(color: AppColors.colorD9D9D9),
+                              borderRadius: BorderRadius.circular(
+                                AppDimensions.d8.r,
+                              ),
                             ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(9.0),
-                            child: ImageView(path: AppImages.icReward),
+                            child: Padding(
+                              padding: const EdgeInsets.all(9.0),
+                              child: ImageView(path: AppImages.icReward),
+                            ),
                           ),
                         ),
                       ],
@@ -132,7 +142,13 @@ class NewHomePage extends StatelessWidget {
                                     AppDimensions.d16.sp,
                                   ),
                                   Spacer(),
-                                  ImageView(path: AppImages.icQMark),
+                                  GestureDetector(
+                                    behavior: HitTestBehavior.translucent,
+                                    onTap: () {
+                                      Get.toNamed(RouteString.yourNpsScreen);
+                                    },
+                                    child: ImageView(path: AppImages.icQMark),
+                                  ),
                                 ],
                               ),
                               SizedBox(height: 16.h),
@@ -201,7 +217,7 @@ class NewHomePage extends StatelessWidget {
   getJobsWidget(int index) {
     bool hide = index.isOdd;
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Get.toNamed(RouteString.jobInfo);
       },
       child: Padding(
@@ -212,8 +228,8 @@ class NewHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
-                  hide?"12:00pm":"9:00am",
+                Text(
+                  hide ? "12:00pm" : "9:00am",
                 ).regularText(AppColors.color949494, AppDimensions.d11.sp),
                 AppSpacing.w16,
                 Column(
@@ -230,24 +246,28 @@ class NewHomePage extends StatelessWidget {
                           width: 0.5.w,
                         ),
                       ),
-                      child:hide?Container(
-                        height: 8.h,
-                        width: 8.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                          border: Border.all(
-                            color: AppColors.color293359.withValues(alpha: 0.5),
-                            width: 1.w,
-                          ),
-                        ),
-                      ): AnimatedContainer(
-                        duration: const Duration(milliseconds: 150),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.color293359,
-                        ),
-                      ),
+                      child: hide
+                          ? Container(
+                              height: 8.h,
+                              width: 8.w,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: AppColors.color293359.withValues(
+                                    alpha: 0.5,
+                                  ),
+                                  width: 1.w,
+                                ),
+                              ),
+                            )
+                          : AnimatedContainer(
+                              duration: const Duration(milliseconds: 150),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.color293359,
+                              ),
+                            ),
                     ),
                     AppSpacing.h14,
                     Container(
@@ -271,20 +291,26 @@ class NewHomePage extends StatelessWidget {
                         "Preventive Maintenance HVAC",
                       ).boldText(AppColors.color555555, AppDimensions.d13.sp),
                       AppSpacing.h14,
-                      blurredText(Text(
-                        "4118 Davana Rd, Los Angeles, CA",
-                      ).regularText(AppColors.color949494, AppDimensions.d13.sp), hide: hide,),
+                      blurredText(
+                        Text("4118 Davana Rd, Los Angeles, CA").regularText(
+                          AppColors.color949494,
+                          AppDimensions.d13.sp,
+                        ),
+                        hide: hide,
+                      ),
                       AppSpacing.h6,
-                      blurredText(Row(
-                        children: [
-                          ImageView(path: AppImages.icLocation),
-                          Text("25km away").regularText(
-                            AppColors.color333333.withValues(alpha: 0.8),
-                            AppDimensions.d13.sp,
-                          ),
-                        ],
-                      ), hide: hide,),
-
+                      blurredText(
+                        Row(
+                          children: [
+                            ImageView(path: AppImages.icLocation),
+                            Text("25km away").regularText(
+                              AppColors.color333333.withValues(alpha: 0.8),
+                              AppDimensions.d13.sp,
+                            ),
+                          ],
+                        ),
+                        hide: hide,
+                      ),
                     ],
                   ),
                 ),
@@ -316,13 +342,13 @@ class NewHomePage extends StatelessWidget {
       child: Stack(
         children: [
           dataWidget,
-          if(hide)
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
-              child: Container(color: Colors.transparent),
+          if (hide)
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+                child: Container(color: Colors.transparent),
+              ),
             ),
-          ),
         ],
       ),
     );

@@ -40,7 +40,34 @@ class CommonWidgets {
       ],
     );
   }
+  static Widget appBarCenterTitle(String title, {Widget? suffix, VoidCallback? backTap}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: backTap ?? () => Get.back(),
+          child: Container(
+            color: Colors.transparent,
+            height: 26.h,
+            child: const Icon(Icons.arrow_back, color: AppColors.color333333),
+          ),
+        ),
 
+        AppSpacing.w20,
+        Expanded(
+          child: Center(
+            child: Text(
+              title,
+            ).semiBoldText(AppColors.color333333, AppDimensions.d16.sp),
+          ),
+        ),
+        suffix ?? Container(
+          width: 40,
+        ),
+      ],
+    );
+  }
   static Widget filterBottomSheetContainer(String value) {
     return Container(
       height: AppDimensions.d32.h,

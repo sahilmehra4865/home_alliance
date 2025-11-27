@@ -3,6 +3,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:home_alliance/view/dashboard_flow/Home/new_home.dart';
 
 import '../comming_soon.dart';
+import '../job_screens/new_job_screen.dart';
 import 'Home/home_page.dart';
 import 'Home/home_var_page.dart';
 import 'finance/finance_page.dart';
@@ -30,6 +31,6 @@ class DashboardPageController extends GetxController {
     const NewHomePage(), //   home ? const HomePage() : const HomeVarPage(),
      //const FinancePage(),
    //  MetricsPage(),
-   const JobsPage(),
+    NewJobScreen() //const JobsPage(),
   ];
 }

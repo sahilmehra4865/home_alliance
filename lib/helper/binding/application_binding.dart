@@ -3,6 +3,7 @@ import 'package:home_alliance/view/dashboard_flow/Home/home_page_controller.dart
 import 'package:home_alliance/view/dashboard_flow/finance/finance_controller.dart';
 import 'package:home_alliance/view/dashboard_flow/metrics/metrics_page_controller.dart';
 import 'package:home_alliance/view/job_screens/job_info_controller.dart';
+import 'package:home_alliance/view/job_screens/new_jobs_controller.dart';
 import 'package:home_alliance/view/open_job/open_job_page_controller.dart';
 import '../../service/api_services.dart';
 import '../../view/authentication/login_page_controller.dart';
@@ -27,5 +28,6 @@ class ApplicationBinding implements Bindings {
     Get.lazyPut(() => CreateInvoicePreviewController(), fenix: true);
     Get.lazyPut(() => JobInfoController(), fenix: true);
     Get.lazyPut(() => ApiService(), fenix: true);
+    Get.lazyPut(() => NewJobsController(), fenix: true);
   }
 }

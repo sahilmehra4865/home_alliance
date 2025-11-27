@@ -23,6 +23,7 @@ import 'dialogs/add_new_sale_dalog.dart';
 import 'dialogs/add_note.dart';
 import 'dialogs/edit_material_dailog.dart';
 import 'dialogs/edit_sales_dailog.dart';
+import 'dialogs/left_status_dialog.dart';
 
 class JobInfoScreen extends StatelessWidget {
   const JobInfoScreen({super.key});
@@ -286,8 +287,14 @@ class JobInfoScreen extends StatelessWidget {
                                                 controller.jobStatus > 2,
                                             isActive: controller.jobStatus == 2,
                                             onTap: () {
-                                              controller.jobStatus = 3;
-                                              controller.update();
+                                              showDialog(
+                                                context: context,
+                                                builder: (_) => LeftStatusDialog(),
+                                              ).then((v){
+                                              //  controller.jobStatus = 3;
+                                                controller.update();
+                                              });
+
                                             },
                                           ),
                                         ],
@@ -357,7 +364,7 @@ class JobInfoScreen extends StatelessWidget {
               AppColors.color333333.withValues(alpha: 0.8),
               AppDimensions.d14.sp,
             ),
-            ImageView(path: AppImages.icMenu),
+           // ImageView(path: AppImages.icMenu),
           ],
         ),
         SizedBox(height: 16.h),

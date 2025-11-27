@@ -8,12 +8,16 @@ import 'package:home_alliance/widgets/drop_down.dart';
 import '../../../helper/decoration.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_dimension.dart';
+import '../../../utils/app_images.dart';
 import '../../../utils/app_spacing.dart';
+import '../../../widgets/image_view.dart';
 
 Widget addNewPaymentDialog(BuildContext context) {
   String selectedValue = "Credit Card";
+  bool selected = false;
+  bool isFailed = true;
   return StatefulBuilder(
-      builder: (context, setState) {
+    builder: (context, setState) {
       return Dialog(
         insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -25,14 +29,17 @@ Widget addNewPaymentDialog(BuildContext context) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Title
-                Text(
-                  "Add New Payment",
-                ).semiBoldText(AppColors.color333333.withValues(alpha: 0.8), 14.sp),
+                Text("Add New Payment").semiBoldText(
+                  AppColors.color333333.withValues(alpha: 0.8),
+                  14.sp,
+                ),
                 divider(),
                 AppSpacing.h24,
 
                 /// Appliance Type label
-                Text("Appliance Type").regularText(AppColors.color333333, 10.sp),
+                Text(
+                  "Appliance Type",
+                ).regularText(AppColors.color333333, 10.sp),
 
                 const SizedBox(height: 8),
 
@@ -43,7 +50,9 @@ Widget addNewPaymentDialog(BuildContext context) {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Amount").regularText(AppColors.color333333, 10.sp),
+                          Text(
+                            "Amount",
+                          ).regularText(AppColors.color333333, 10.sp),
 
                           const SizedBox(height: 8),
                           Container(
@@ -117,7 +126,39 @@ Widget addNewPaymentDialog(BuildContext context) {
                 if (selectedValue == "Credit Card") ...{
                   creditCard(),
                 } else ...{
-                  addCashImage(selectedValue == "Check", () {}),
+                  if (selected == true) ...{
+                    selectedValue == "Check"
+                        ? FileUploadTile(
+                            fileName: "Check.png",
+                            progress: 178.5 / 200,
+                            sizeLabel: "178.5 MB / 200 MB",
+                            onDelete: () {
+                              setState(() {
+                                selected = false;
+                              });
+                            },
+                            isFailed: isFailed,
+                            onReload: () {
+                              setState(() {
+                                isFailed = false;
+                              });
+                            },
+                          )
+                        : ImagePreviewTile(
+                            imagePath: AppImages.icCash,
+                            onDelete: () {
+                              setState(() {
+                                selected = false;
+                              });
+                            },
+                          ),
+                  } else ...{
+                    addCashImage(selectedValue == "Check", () {
+                      setState(() {
+                        selected = true;
+                      });
+                    }),
+                  },
                 },
 
                 SizedBox(height: 24),
@@ -166,7 +207,7 @@ Widget addNewPaymentDialog(BuildContext context) {
           ),
         ),
       );
-    }
+    },
   );
 }
 
@@ -280,4 +321,171 @@ Widget creditCard() {
       ),
     ],
   );
+}
+
+class FileUploadTile extends StatelessWidget {
+  final String fileName;
+  final double progress; // 0.0 – 1.0
+  final String sizeLabel;
+  final VoidCallback onDelete;
+  final VoidCallback onReload;
+  final bool isFailed;
+
+  const FileUploadTile({
+    super.key,
+    required this.fileName,
+    required this.progress,
+    required this.sizeLabel,
+    required this.onDelete,
+    required this.isFailed,
+    required this.onReload,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: AppColors.colorD9D9D9),
+      ),
+      child: Row(
+        children: [
+          Container(
+            height: 38.h,
+            width: 38.w,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: AppColors.colorF5F5F5,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: ImageView(path: AppImages.icImage),
+              ),
+            ),
+          ),
+
+          const SizedBox(width: 12),
+
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(fileName).boldText(
+                  AppColors.color333333.withValues(alpha: 0.87),
+                  14.sp,
+                ),
+
+                AppSpacing.h6,
+
+                ClipRRect(
+                  //  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: progress,
+                    minHeight: 5,
+                    backgroundColor: AppColors.colorD9D9D9,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      isFailed ? AppColors.colorDD2E44 : AppColors.color364699,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 6),
+                isFailed
+                    ? Text("Failed").boldText(AppColors.colorDD2E44, 10.sp)
+                    : Text(sizeLabel).boldText(
+                        AppColors.color333333.withValues(alpha: 0.6),
+                        10.sp,
+                      ),
+              ],
+            ),
+          ),
+          AppSpacing.w10,
+          if (isFailed)
+            GestureDetector(
+              onTap: onReload,
+              child: Container(
+                height: 32.h,
+                width: 32.h,
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(
+                    color: AppColors.color333333.withValues(alpha: 0.1),
+                  ),
+                ),
+                child: ImageView(path: AppImages.icReload),
+              ),
+            ),
+          AppSpacing.w10,
+          GestureDetector(
+            onTap: onDelete,
+            child: Container(
+              height: 32.h,
+              width: 32.h,
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(
+                  color: AppColors.color333333.withValues(alpha: 0.1),
+                ),
+              ),
+              child: ImageView(path: AppImages.icDelete),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ImagePreviewTile extends StatelessWidget {
+  final String imagePath;
+  final VoidCallback onDelete;
+
+  const ImagePreviewTile({
+    super.key,
+    required this.imagePath,
+    required this.onDelete,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: Stack(
+        children: [
+          // The main image
+          ImageView(path: imagePath, fit: BoxFit.fill),
+
+          // Delete button
+          Positioned(
+            top: 15,
+            right: 15,
+            child: GestureDetector(
+              onTap: onDelete,
+              child: Container(
+                height: 32.h,
+                width: 32.h,
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(
+                    color: AppColors.color333333.withValues(alpha: 0.1),
+                  ),
+                ),
+                child: ImageView(path: AppImages.icDelete),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

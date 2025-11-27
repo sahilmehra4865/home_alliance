@@ -24,4 +24,10 @@ class RouteString {
   static const String leaderBoardPage = "/leaderBoardPage";
   static const String openJobs = "/openJobs";
   static const String jobInfo = "/jobInfo";
+  static const String yourNpsScreen = "/yourNpsScreen";
+  static const String rewardsScreen = "/rewardsScreen";
+  static const String howToEarn = "/howToEarn";
+  static const String importantScreen = "/importantScreen";
+  static const String profileScreen = "/profileScreen";
+  static const String settingsScreen = "/profileSettingsScreen";
 }

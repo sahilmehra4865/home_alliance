@@ -61,15 +61,16 @@ class _MyDropDownWidgetState extends State<MyDropDownWidget> {
           .map(
             (item) => DropdownMenuItem<String>(
               value: item,
+
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 14),
+                //  const SizedBox(height: 14),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.w),
-                    child: Text(item).regularText(AppColors.color555555, 14.sp),
+                    padding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 14.h),
+                    child: Text(item).regularText(AppColors.color555555, 14.sp,maxLines: 1),
                   ),
-                  const SizedBox(height: 14),
+                //  const SizedBox(height: 14),
 
                   // Divider inside dropdown list
                   Container(height: 1, color: AppColors.colorD9D9D9),
